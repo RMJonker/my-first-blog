@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
 '2id60.win.tue.nl',
 '127.0.0.1',
+'rtraitor.pythonanywhere.com',
 ]
 
 
