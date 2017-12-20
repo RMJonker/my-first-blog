@@ -53,6 +53,24 @@
   	    	<li class='primary dateListed'>Due Date: </li>
   	    	<li class='primary deleteButton'></li>
   	    </div>
+
+        {% for important_task in important_tasks %}
+          <div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
+            <div class='clickableExpand'>
+              <li class='panel panel-default important taskListed'>{{ important_task.taskname }}</li>
+              <li class='panel panel-default important dateListed'>{{ important_task.due_date }}</li>
+            </div>
+            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+            <div class='expandedInstructions'>
+              <h4>Description of the task:</h4>{{ important_task.text }}<br>
+            </div>
+          </div>
+        {% endfor %}
+
+          
+
+
+
       	<!-- Example element in the list -->
       	<div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
       		<div class='clickableExpand'>
@@ -61,9 +79,23 @@
       		</div>
       		<li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
       		<div class='expandedInstructions'>
-      			<h4>Description of the task:</h4><br>This description can be filled or can be left empty. Clicking on the task toggles the description.
+      			<h4>Description of the task:</h4>This description can be filled or can be left empty. Clicking on the task toggles the description.<br>
       		</div>
       	</div>
+
+        {% for task in tasks %}
+          <div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
+            <div class='clickableExpand'>
+              <li class='panel panel-default taskListed'>{{ task.taskname }}</li>
+              <li class='panel panel-default dateListed'>{{ task.due_date }}</li>
+            </div>
+            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+            <div class='expandedInstructions'>
+              <h4>Description of the task:</h4>{{ task.text }}<br>
+            </div>
+          </div>
+        {% endfor %}
+
       </ul>
       <div class='container col-xs-12 col-sm-12 col-md-12 clearAll'>
       	<button type="button" class="btn btn-danger btn-lg" id='clearListButton' data-toggle="modal" data-target="#clearModal">Clear List</button>

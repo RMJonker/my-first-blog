@@ -102,6 +102,7 @@ li.deleteButton {
 	display: none;
 	font-size: 14px;
 	padding-top: 40px;
+	padding-bottom: 10px;
 }
 
 /* Decrease modal size by decreasing margin bottom of last element in modal */

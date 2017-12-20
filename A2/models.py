@@ -20,3 +20,14 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Task(models.Model):
+	taskname = models.CharField(max_length=200)
+	text = models.TextField()
+	due_date = models.DateField(
+			default=timezone.now)
+	important = models.BooleanField(
+			default=False)
+
+	def __str__(self):
+		return self.taskname
