@@ -41,31 +41,33 @@
     	<hr>
     </div>
 
-    <div class="form-group todolist">
-      <h1>To-Do List</h1>
-      <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#testModal"><i class="glyphicon glyphicon-plus"></i></button>
-    </div>
-    <div></div>
-    <ul class="list-unstyled" id="todoTEST">
-    	<div class='listHeading col-xs-12 col-sm-12 col-md-12'>
-	    	<li class='primary taskListed'>Task:</li>
-	    	<li class='primary dateListed'>Due Date: </li>
-	    	<li class='primary deleteButton'></li>
-	    </div>
-    	<!-- Example element in the list -->
-    	<div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
-    		<div class='clickableExpand'>
-    			<li class='panel panel-default taskListed'>Example task</li>
-    			<li class='panel panel-default dateListed'>05/12/2017</li>
-    		</div>
-    		<li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
-    		<div class='expandedInstructions'>
-    			<h4>Description of the task:</h4><br>This description can be filled or can be left empty. Clicking on the task toggles the description.
-    		</div>
-    	</div>
-    </ul>
-    <div class='container col-xs-12 col-sm-12 col-md-12 clearAll'>
-    	<button type="button" class="btn btn-danger btn-lg" id='clearListButton' data-toggle="modal" data-target="#clearModal">Clear List</button>
+    <div class="container">
+      <div class="form-group todolist">
+        <h1>To-Do List</h1>
+        <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#testModal"><i class="glyphicon glyphicon-plus"></i></button>
+      </div>
+      <div></div>
+      <ul class="list-unstyled" id="todoTEST">
+      	<div class='listHeading col-xs-12 col-sm-12 col-md-12'>
+  	    	<li class='primary taskListed'>Task:</li>
+  	    	<li class='primary dateListed'>Due Date: </li>
+  	    	<li class='primary deleteButton'></li>
+  	    </div>
+      	<!-- Example element in the list -->
+      	<div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
+      		<div class='clickableExpand'>
+      			<li class='panel panel-default taskListed'>Example task</li>
+      			<li class='panel panel-default dateListed'>05/12/2017</li>
+      		</div>
+      		<li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+      		<div class='expandedInstructions'>
+      			<h4>Description of the task:</h4><br>This description can be filled or can be left empty. Clicking on the task toggles the description.
+      		</div>
+      	</div>
+      </ul>
+      <div class='container col-xs-12 col-sm-12 col-md-12 clearAll'>
+      	<button type="button" class="btn btn-danger btn-lg" id='clearListButton' data-toggle="modal" data-target="#clearModal">Clear List</button>
+      </div>
     </div>
 
     <div id="testModal" class="modal fade" tabindex="-1" role="dialog">

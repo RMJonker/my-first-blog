@@ -18,6 +18,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^$', views.help, name='help'),
+    url(r'^index.html$', views.index, name='index'),
+    url(r'^help.html$', views.help, name='help'),
     url(r'^$', views.post_list, name='post_list'),
 ]
