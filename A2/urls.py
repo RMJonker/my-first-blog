@@ -27,5 +27,7 @@ urlpatterns = [
     url(r'^addtask$', views.addtask, name='addtask'),
     url(r'^edittask$', views.edittask, name='edittask'),
     url(r'^edittask/(?P<task_id>\d+)$', views.edittask, name='edittask'),
+    url(r'^removetask/(?P<task_id>\d+)$', views.removetask, name='removetask'),
+    url(r'^clearlist$', views.clearlist, name='clearlist'),
     url(r'^$', views.post_list, name='post_list'),
 ]

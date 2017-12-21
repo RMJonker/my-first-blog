@@ -103,6 +103,8 @@ li.deleteButton {
 	background-color: #6c9fe9;
 	padding-left: 5px;
 	border-radius: 15px;
+	width: 100vh;
+	max-width: 100%;
 }
 .show-login-name {
 	font-style: italic;
@@ -169,6 +171,10 @@ li.important.task-active {
 
 .fieldWrapper {
 	margin-bottom: 10px;
+}
+
+.delete-button {
+	float: right;
 }
 
 /* all for the navbar colors */

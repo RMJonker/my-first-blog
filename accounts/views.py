@@ -32,3 +32,8 @@ def logout_view(request):
 	if request.method == "POST":
 		logout(request)
 		return redirect('A2:index')
+
+def remove_view(request):
+	if request.method == "POST":
+		logout(request)
+		return redirect('A2:index')

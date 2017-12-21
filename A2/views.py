@@ -44,3 +44,15 @@ def edittask(request, task_id):
     else:
         form = TaskForm(instance=task)
     return render(request, 'A2/task_edit.html', {'form': form})
+
+def removetask(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    if request.method == "POST":
+        task.delete()
+        return redirect('A2:index')
+
+def clearlist(request):
+	task = Task.objects.filter(owner=request.user)
+	if request.method == "POST":
+		task.delete()
+		return redirect('A2:index')

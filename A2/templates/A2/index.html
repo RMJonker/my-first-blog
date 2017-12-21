@@ -97,7 +97,12 @@
               <li class='panel panel-default important taskListed'>{{ important_task.taskname }}</li>
               <li class='panel panel-default important dateListed'>{{ important_task.due_date }}</li>
             </div>
-            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
+            <li class='deleteButton'>
+              <form method="POST" class="delete-button" action="{% url 'A2:removetask' task_id=important_task.pk %}" >
+                {% csrf_token %}
+                <button type="submit" class="btn btn btn-danger" id='deleteButton' aria-hidden='true'>&times;</button>
+              </form>
+            </li>
             <div class='expandedInstructions'>
               <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'A2:edittask' task_id=important_task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ important_task.text }} <br>
             </div>
@@ -126,7 +131,12 @@
               <li class='panel panel-default taskListed'>{{ task.taskname }}</li>
               <li class='panel panel-default dateListed'>{{ task.due_date }}</li>
             </div>
-            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
+            <li class='deleteButton'>
+              <form method="POST" class="delete-button" action="{% url 'A2:removetask' task_id=task.pk %}" >
+                {% csrf_token %}
+                <button type="submit" class="btn btn btn-danger" id='deleteButton' aria-hidden='true'>&times;</button>
+              </form>
+            </li>
             <div class='expandedInstructions'>
               <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'A2:edittask' task_id=task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ task.text }}<br>
             </div>
@@ -187,7 +197,11 @@
        			</div>
       			<div class="modal-footer">
         			<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        			<button type="button" class="btn btn-primary" id="confirmTask" name="clearConfirmButton">Confirm</button>
+        			<!--<button type="button" class="btn btn-primary" id="confirmTask" name="clearConfirmButton">Confirm</button>-->
+              <form method="POST" class="clear-confirm-button" action="{% url 'A2:clearlist' %}" >
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary" id='confirmTask' name="clearConfirmButton" >Confirm</button>
+              </form>
 			    </div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
