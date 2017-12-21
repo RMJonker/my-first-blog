@@ -37,7 +37,6 @@ urlpatterns = [
     url(r'^edittask/(?P<task_id>\d+)$', views.edittask, name='edittask'),
     url(r'^removetask/(?P<task_id>\d+)$', views.removetask, name='removetask'),
     url(r'^clearlist$', views.clearlist, name='clearlist'),
-    url(r'^$', views.post_list, name='post_list'),
     url(r'^tasks/$', views.task_list),
     url(r'^tasks/(?P<pk>[0-9]+)/$', views.task_detail),
     #url(r'^', include(router.urls)),

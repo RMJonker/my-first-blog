@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post
 from .models import Task
 from .forms import TaskForm
 from django.contrib.auth.decorators import login_required
@@ -24,10 +23,6 @@ def notloggedin(request):
 
 def help(request):
 	return render(request, 'A2/help.html')
-
-def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'A2/post_list.html', {'posts': posts})
 
 @login_required
 def addtask(request):
@@ -71,7 +66,7 @@ def clearlist(request):
 		return redirect('A2:index')
 
 
-
+#Code underneath is for the REST API
 
 @api_view(['GET', 'POST'])
 def task_list(request):
