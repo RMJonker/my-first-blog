@@ -3,7 +3,38 @@
 {% block content %}
     <h1>Signup</h1>
     <form method="POST" class="signup-form" >{% csrf_token %}
-        {{ form }}
+    	<div class="fieldWrapper">
+	        {{ form.username.errors }}
+	        {{ form.username.label_tag }}
+	        <br/>
+	        {{ form.username }}
+        </div>
+        <div class="fieldWrapper">
+	        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+	        <br/>
+	    </div>
+        <div class="fieldWrapper">
+	        {{ form.password1.errors }}
+	        {{ form.password1.label_tag }}
+	        <br/>
+	        {{ form.password1 }}
+	        <br/>
+	    </div>
+        <div class="fieldWrapper">
+	        <ul>
+	        	<li>Your password can't be too similar to your other personal information.</li>
+				<li>Your password must contain at least 8 characters.</li>
+				<li>Your password can't be a commonly used password.</li>
+				<li>Your password can't be entirely numeric.</li>
+			</ul>
+		</div>
+		<div class="fieldWrapper">
+	        {{ form.password2.errors }}
+	        {{ form.password2.label_tag }}
+	        <br/>
+	        {{ form.password2 }}
+	        <br/>
+	    </div>
         <button type="submit" class="save btn btn-default">Signup</button>
     </form>
 {% endblock %}
