@@ -28,8 +28,40 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="./help.html">Help</a></li>
+            <li><a href="{% url 'A2:help' %}">Help</a></li>
           </ul>
+
+          {% if user.is_authenticated %}
+          <div class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="show-login-name">Logged in as <strong>{{ user.username }}</strong></a></li>
+                <li>
+                  <form method="POST" class="logout-button" action="{% url 'accounts:logout' %}" >
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if user.is_anonymous %}
+          <div class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="show-login-name">Not logged in</a></li>
+                <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -41,7 +73,7 @@
     	<hr>
 
       <!-- Testing forms from Django -->
-      <a href="{% url 'addtask' %}" class="add-a-task"><span class="glyphicon glyphicon-plus"></span></a>
+      <a href="{% url 'A2:addtask' %}" class="add-a-task"><span class="glyphicon glyphicon-plus"></span></a>
 
     </div>
 
@@ -66,7 +98,7 @@
             </div>
             <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
             <div class='expandedInstructions'>
-              <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'edittask' task_id=important_task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ important_task.text }} <br>
+              <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'A2:edittask' task_id=important_task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ important_task.text }} <br>
             </div>
           </div>
         {% endfor %}
@@ -74,8 +106,7 @@
           
 
 
-
-      	<!-- Example element in the list -->
+        <!-- This is an example element in the list, but is is probably obsolete because of the Django database
       	<div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
       		<div class='clickableExpand'>
       			<li class='panel panel-default taskListed'>Example task</li>
@@ -86,6 +117,7 @@
       			<h4>Description of the task:</h4>This description can be filled or can be left empty. Clicking on the task toggles the description.<br>
       		</div>
       	</div>
+        -->
 
         {% for task in tasks %}
           <div class='taskInTheList col-xs-12 col-sm-12 col-md-12'>
@@ -95,7 +127,7 @@
             </div>
             <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
             <div class='expandedInstructions'>
-              <h4>Description of the task:</h4>{{ task.text }}<br>
+              <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'A2:edittask' task_id=task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ task.text }}<br>
             </div>
           </div>
         {% endfor %}

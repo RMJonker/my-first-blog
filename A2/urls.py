@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from . import views
 
+app_name = "A2"
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^index.html$', views.index, name='index'),
-    url(r'^help.html$', views.help, name='help'),
+    url(r'^index$', views.index, name='index'),
+    url(r'^help$', views.help, name='help'),
     url(r'^addtask$', views.addtask, name='addtask'),
     url(r'^edittask$', views.edittask, name='edittask'),
     url(r'^edittask/(?P<task_id>\d+)$', views.edittask, name='edittask'),

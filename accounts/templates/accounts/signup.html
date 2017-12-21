@@ -1,0 +1,9 @@
+{% extends 'A2/base.html' %}
+
+{% block content %}
+    <h1>Signup</h1>
+    <form method="POST" class="signup-form" >{% csrf_token %}
+        {{ form }}
+        <button type="submit" class="save btn btn-default">Signup</button>
+    </form>
+{% endblock %}

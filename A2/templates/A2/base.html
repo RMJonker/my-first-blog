@@ -27,9 +27,42 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'help' %}">Help</a></li>
+            <li><a href="{% url 'A2:index' %}">Home</a></li>
+            <li><a href="{% url 'A2:help' %}">Help</a></li>
           </ul>
+
+
+          {% if user.is_authenticated %}
+          <div class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="show-login-name">Logged in as <strong>{{ user.username }}</strong></a></li>
+                <li>
+                  <form method="POST" class="logout-button" action="{% url 'accounts:logout' %}" >
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if user.is_anonymous %}
+          <div class="nav navbar-nav navbar-right">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="show-login-name">Not logged in</a></li>
+                <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+              </ul>
+            </div>
+          </div>
+          {% endif %}
+
         </div><!--/.nav-collapse -->
       </div>
     </nav>

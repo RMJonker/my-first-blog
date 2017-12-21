@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from .models import Post
 from .models import Task
 from .forms import TaskForm
-from django.shortcuts import redirect
 
 # Create your views here.
 def index(request):
