@@ -70,11 +70,6 @@
     	<h1 class="page-header">What to do...</h1>
     	<p class="lead">With this website, you are able to create a basic to-do list.<br> To get started, press the '+' button below!</p>
     	<hr>
-
-      <!-- Testing forms from Django
-      <a href="{% url 'A2:addtask' %}" class="add-a-task"><span class="glyphicon glyphicon-plus"></span></a>
-      -->
-
     </div>
 
     <div class="container">
@@ -131,42 +126,6 @@
       	<button type="button" class="btn btn-danger btn-lg" id='clearListButton' data-toggle="modal" data-target="#clearModal">Clear List</button>
       </div>
     </div>
-
-    <div id="testModal" class="modal fade" tabindex="-1" role="dialog">
-  		<div class="modal-dialog" role="document">
-    		<div class="modal-content">
-      			<div class="modal-header">
-        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        				<h4 class="modal-title">Add a task</h4>
-      			</div>
-     			<div class="modal-body">
-       				<div class="form-group">
-						<label for="task">Task: <i>*required</i></label>
-						<input type="text" class="form-control" id="task" name="taskName" placeholder="Fill in your task">
-					</div>
-
-					<div class="form-group">
-	  					<label for="comment">Description of task:</label>
-	  					<textarea class="form-control" rows="3" id="comment"></textarea>
-					</div>
-
-					<label for="date">Due date task: <i>*required</i></label>
-					<div class="form-group input-group date">
-					  	<input type="text" class="form-control" id='date' name='taskDate' data-provide="datepicker" placeholder="Click here to choose the due date"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-					</div>
-
-					<div class="form-group checkbox">
-					  	<label for='checkboxImportant'>Set as Important: </label>
-					  	<input type="checkbox" value="" id="checkboxImportant" data-toggle='toggle'>
-					</div>
-      			</div>
-      			<div class="modal-footer">
-        			<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        			<button type="button" class="btn btn-primary" id="confirmTask" name="confirmButton">Confirm</button>
-			    </div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
 
 	<div id="clearModal" class="modal fade" tabindex="-1" role="dialog">
   		<div class="modal-dialog" role="document">
