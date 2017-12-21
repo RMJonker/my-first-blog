@@ -22,6 +22,7 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'A2/post_list.html', {'posts': posts})
 
+@login_required
 def addtask(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
@@ -34,6 +35,7 @@ def addtask(request):
         form = TaskForm()
     return render(request, 'A2/task_edit.html', {'form': form})
 
+@login_required
 def edittask(request, task_id):
     task = Task.objects.get(pk=task_id)
     if request.method == "POST":
