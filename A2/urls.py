@@ -20,7 +20,9 @@ app_name = "A2"
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^notloggedin$', views.notloggedin, name='notloggedin'),
     url(r'^index$', views.index, name='index'),
+    url(r'^notloggedin$', views.notloggedin, name='notloggedin'),
     url(r'^help$', views.help, name='help'),
     url(r'^addtask$', views.addtask, name='addtask'),
     url(r'^edittask$', views.edittask, name='edittask'),

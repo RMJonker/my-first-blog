@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'A2',
     'accounts',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ TIME_ZONE = 'Europe/Amsterdam'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -125,3 +126,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# redirect to notloggedin page
+LOGIN_URL = 'A2:notloggedin'
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']

@@ -1,9 +1,36 @@
 {% extends 'A2/base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
     <h1>New task</h1>
     <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    	<div class="fieldWrapper">
+    		{{ form.taskname.errors }}
+        	{{ form.taskname.label_tag }} <br/>
+        	{{ form.taskname }}
+        </div>
+
+    	<div class="fieldWrapper">
+    		{{ form.text.errors }}
+       		<label for="id_text">Description of task:</label> <br/>
+        	{{ form.text }}
+       	</div>
+
+    	<div class="fieldWrapper">
+   			{{ form.due_date.errors }}
+       		{{ form.due_date.label_tag }} <br/>
+       		<div class="form-group input-group date">
+       			{% render_field form.due_date class+="form-control" id+='date' data-provide+="datepicker" %}
+       		</div>
+        </div>
+
+    	<div class="fieldWrapper">
+    		{{ form.important.errors }}
+       		{{ form.important.label_tag }} <br/>
+    		<div class="form-group checkbox">
+       			{% render_field form.important id+="checkboxImportant" data-toggle+='toggle' %}
+       		</div>
+    	</div>
+
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

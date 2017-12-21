@@ -163,6 +163,14 @@ li.important.task-active {
     white-space: nowrap;
 }
 
+#plus-button {
+	top: 5px;
+}
+
+.fieldWrapper {
+	margin-bottom: 10px;
+}
+
 /* all for the navbar colors */
 .navbar-default {
   background-color: #3082fc;

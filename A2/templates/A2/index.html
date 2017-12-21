@@ -72,15 +72,16 @@
     	<p class="lead">With this website, you are able to create a basic to-do list.<br> To get started, press the '+' button below!</p>
     	<hr>
 
-      <!-- Testing forms from Django -->
+      <!-- Testing forms from Django
       <a href="{% url 'A2:addtask' %}" class="add-a-task"><span class="glyphicon glyphicon-plus"></span></a>
+      -->
 
     </div>
 
     <div class="container">
       <div class="form-group todolist">
         <h1>To-Do List</h1>
-        <button type="button" class="btn btn-primary btn-circle btn-lg" data-toggle="modal" data-target="#testModal"><i class="glyphicon glyphicon-plus"></i></button>
+        <a href="{% url 'A2:addtask' %}" role="button" class="btn btn-primary btn-circle btn-lg" ><i id="plus-button" class="glyphicon glyphicon-plus"></i></a>
       </div>
       <div></div>
       <ul class="list-unstyled" id="todoTEST">
