@@ -103,6 +103,9 @@ li.deleteButton {
 	font-size: 14px;
 	padding-top: 40px;
 	padding-bottom: 10px;
+	background-color: #6c9fe9;
+	padding-left: 5px;
+	border-radius: 15px;
 }
 
 /* Decrease modal size by decreasing margin bottom of last element in modal */
@@ -145,6 +148,11 @@ li.important.task-active {
 #clearListButton {
 	margin-bottom: 20px;
 }
+
+#editButton {
+	float: right;
+}
+
 
 /* all for the navbar colors */
 .navbar-default {

@@ -39,6 +39,10 @@
     	<h1 class="page-header">What to do...</h1>
     	<p class="lead">With this website, you are able to create a basic to-do list.<br> To get started, press the '+' button below!</p>
     	<hr>
+
+      <!-- Testing forms from Django -->
+      <a href="{% url 'addtask' %}" class="add-a-task"><span class="glyphicon glyphicon-plus"></span></a>
+
     </div>
 
     <div class="container">
@@ -60,9 +64,9 @@
               <li class='panel panel-default important taskListed'>{{ important_task.taskname }}</li>
               <li class='panel panel-default important dateListed'>{{ important_task.due_date }}</li>
             </div>
-            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
             <div class='expandedInstructions'>
-              <h4>Description of the task:</h4>{{ important_task.text }}<br>
+              <h4>Description of the task:<a class="btn btn-default" id='editButton' href="{% url 'edittask' task_id=important_task.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></h4>{{ important_task.text }} <br>
             </div>
           </div>
         {% endfor %}
@@ -77,7 +81,7 @@
       			<li class='panel panel-default taskListed'>Example task</li>
       			<li class='panel panel-default dateListed'>05/12/2017</li>
       		</div>
-      		<li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+      		<li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
       		<div class='expandedInstructions'>
       			<h4>Description of the task:</h4>This description can be filled or can be left empty. Clicking on the task toggles the description.<br>
       		</div>
@@ -89,7 +93,7 @@
               <li class='panel panel-default taskListed'>{{ task.taskname }}</li>
               <li class='panel panel-default dateListed'>{{ task.due_date }}</li>
             </div>
-            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='testingWithNames' aria-hidden='true'>&times;</a></li>
+            <li class='deleteButton'><a href='#' class='btn btn btn-danger' id='deleteButton' aria-hidden='true'>&times;</a></li>
             <div class='expandedInstructions'>
               <h4>Description of the task:</h4>{{ task.text }}<br>
             </div>

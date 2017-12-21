@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from .models import Task
+from .forms import TaskForm
+from django.shortcuts import redirect
 
 # Create your views here.
 def index(request):
@@ -15,3 +17,24 @@ def help(request):
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'A2/post_list.html', {'posts': posts})
+
+def addtask(request):
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save()
+            return redirect('index')
+    else:
+        form = TaskForm()
+    return render(request, 'A2/task_edit.html', {'form': form})
+
+def edittask(request, task_id):
+    task = Task.objects.get(pk=task_id)
+    if request.method == "POST":
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            task = form.save()
+            return redirect('index')
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'A2/task_edit.html', {'form': form})

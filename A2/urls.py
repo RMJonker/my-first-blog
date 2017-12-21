@@ -20,5 +20,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^index.html$', views.index, name='index'),
     url(r'^help.html$', views.help, name='help'),
+    url(r'^addtask$', views.addtask, name='addtask'),
+    url(r'^edittask$', views.edittask, name='edittask'),
+    url(r'^edittask/(?P<task_id>\d+)$', views.edittask, name='edittask'),
     url(r'^$', views.post_list, name='post_list'),
 ]
