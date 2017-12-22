@@ -6,7 +6,7 @@ from django.utils import timezone
 class TaskSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Task
-		fields = ('owner', 'taskname', 'text', 'due_date', 'important')
+		fields = ('owner', 'pk', 'taskname', 'text', 'due_date', 'important')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
